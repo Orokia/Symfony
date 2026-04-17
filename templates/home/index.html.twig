@@ -1,0 +1,73 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Articles{% endblock %}
+
+{% block body %}
+
+<div class="container py-5">
+
+    {# <h2 class="mb-5 text-center fw-bold"> Nos Articles</h2> #}
+
+    <div class="row">
+
+        {% for list in datalist %}
+            <div class="col-md-4 mb-4">
+
+                <div class="card h-100 shadow border-0">
+
+                    {# IMAGE #}
+                    {% if list.picture %}
+                        <img src="{{ asset('uploads/images/' ~ list.picture) }}"
+                             class="card-img-top"
+                             style="height:220px; object-fit:cover;">
+                    {% else %}
+                        <img src="{{ asset('images/default.jpg') }}"
+                             class="card-img-top"
+                             style="height:220px; object-fit:cover;">
+                    {% endif %}
+
+                    <div class="card-body d-flex flex-column">
+
+                        {# TITRE #}
+                        <h5 class="card-title fw-bold mb-2">
+                            {{ list.title }}
+                        </h5>
+
+                        {# DATE #}
+                        <small class="text-muted mb-3">
+                            <i class="bi bi-calendar"></i>
+                            {{ list.publishedAt|date('d M Y') }}
+                        </small>
+
+                     {# CONTENU #}
+                        <p class="card-text text-secondary" style="font-size: 0.95rem;">
+                            {{ list.content|slice(0, 120) }}...
+                        </p>
+
+                        {# ACTIONS #}
+                        <div class="mt-auto d-flex justify-content-between align-items-center pt-3 border-top">
+
+                             <a href="{{ path('app_post_details', {id: list.id}) }}" 
+                               class="btn btn-sm btn-primary">
+                                <i class="bi bi-eye"></i> Voir
+                            </a>
+
+                            
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        {% else %}
+            <p class="text-center">Aucun article disponible</p>
+        {% endfor %}
+
+    </div>
+
+</div>
+
+{% endblock %}

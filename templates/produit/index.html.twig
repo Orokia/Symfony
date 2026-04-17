@@ -1,0 +1,68 @@
+{# {% extends 'base.html.twig' %}
+
+{% block title %}Hello ProduitController!{% endblock %}
+
+{% block body %}
+<form method="post">
+
+    <label>Nom :</label>
+    <input type="text" name="nom" value="{{ produit.nom ?? '' }}" required><br><br>
+
+    <label>Prix :</label>
+    <input type="number"  name="prix" value="{{ produit.prix ?? '' }}" required><br><br>
+
+    <label>Quantité :</label>
+    <input type="number" name="quantité" value="{{ produit.quantité ?? '' }}"required><br><br>
+
+    <label>Description :</label><br>
+    <textarea name="description" value="{{ produit.description ?? '' }}"></textarea><br><br>
+
+    <button type="submit">Enregistrer</button>
+
+</form>
+
+
+
+{% endblock %} #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Blog{% endblock %}
+
+{% block body %}
+
+<section class="container mt-5">
+
+  <h1 class="mb-4 text-center">📰 Liste des articles</h1>
+
+  <div class="row">
+
+    {% for produit in produit %}
+      <div class="col-md-4 ">
+
+        <div class="card">
+
+          <img src="{{ asset('assets/img/hero-bg.jpg') }}" class="card-img-top">
+
+          <div class="card-body">
+            <h5 class="card-title">{{ produit.nom }}</h5>
+
+        
+
+            <p class="card-text">
+             {{ produit.description|slice(0, 100) }}...
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    {% else %}
+      <p>Aucun article</p>
+    {% endfor %}
+
+  </div>
+
+</section>
+
+{% endblock %}

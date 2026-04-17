@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ProduitController!{% endblock %}
+
+{% block body %}
+
+<table border="1" cellpadding="8">
+
+  <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nom</th>
+            <th>Prix</th>
+            <th>Quantité</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+   {% for produit in produits %}
+            <tr>
+                <td>{{ produit.id }}</td>
+                <td>{{ produit.nom }}</td>
+                <td>{{ produit.prix }}</td>
+                <td>{{ produit.quantité }}</td>
+                <td>{{ produit.description }}</td>
+                <td>
+                  <form method="POST" action="{{ path('produit_delete', {id: produit.id}) }}" onsubmit="return confirm('Tu veux supprimer ?')">
+
+                    <button type="submit">Supprimer</button>
+
+                   </form>
+                <td>
+            </tr>
+          
+
+    {% endfor %}
+
+</table>
+
+
+
+
+{% endblock %}

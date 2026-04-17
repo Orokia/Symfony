@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello PostController!{% endblock %}
+
+{% block body %}
+    {% for list in datalist %}
+     {{ list.title}}
+     {{list.content}}
+     {{list.publishedAt|date('d/m/Y H:i')}}
+     {{list.picture}} |<a href="{{path('app_modif', {id: list.id})}}">Modiffier</a>| |<a href="{{path('app_sup', {id: list.id})}}">Supprimer</a>
+     {% endfor %} 
+     <br>
+
+     {{ form(form) }}
+
+
+{% endblock %}
