@@ -61,7 +61,7 @@ public function post(EntityManagerInterface $entity, Request $request, $id): Res
         $comment->setCreatedAt(new \DateTimeImmutable());
         $comment->setPost($post);
         $comment->setUser($this->getUser());
-        $comment->setStatus('valider');
+        $comment->setStatus(Comment::STATUS_PENDING);
 
 
         $entity->persist($comment);
