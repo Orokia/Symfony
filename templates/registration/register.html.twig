@@ -9,7 +9,7 @@
         <div class="col-md-6">
 
             <div class="card shadow p-4">
-                <h2 class="text-center mb-4">Create an account</h2>
+                <h2 class="text-center mb-4">Creer un compte</h2>
 
                 {{ form_start(registrationForm) }}
 
@@ -18,7 +18,7 @@
                 <div class="mb-3">
                     {{ form_label(registrationForm.email) }}
                     {{ form_widget(registrationForm.email, {
-                        attr: { class: 'form-control', placeholder: 'Enter your email' }
+                        attr: { class: 'form-control', placeholder: 'Entrer votre Email' }
                     }) }}
                     {{ form_errors(registrationForm.email) }}
                 </div>
@@ -26,14 +26,14 @@
                 <div class="mb-3">
                     {{ form_label(registrationForm.firstName) }}
                     {{ form_widget(registrationForm.firstName, {
-                        attr: { class: 'form-control', placeholder: 'First name' }
+                        attr: { class: 'form-control', placeholder: 'Nom' }
                     }) }}
                 </div>
 
                 <div class="mb-3">
                     {{ form_label(registrationForm.lastName) }}
                     {{ form_widget(registrationForm.lastName, {
-                        attr: { class: 'form-control', placeholder: 'Last name' }
+                        attr: { class: 'form-control', placeholder: 'Prenom' }
                     }) }}
                 </div>
 
@@ -55,13 +55,13 @@
                 </div>
 
                 <button type="submit" class="btn btn-primary w-100">
-                    Register
+                    Valider
                 </button>
 
                 {{ form_end(registrationForm) }}
 
                 <p class="text-center mt-3">
-                    Already have an account ?
+                    Vous n'avez pas de compte ?
                     {# <a href="{{ path('app_login') }}">Login</a> #}
                 </p>
 

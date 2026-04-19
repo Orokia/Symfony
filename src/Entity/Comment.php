@@ -23,7 +23,11 @@ class Comment
     private ?\DateTimeImmutable $createdAt = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $status = null;
+    private ?string $status = self::STATUS_PENDING;
+
+    public const STATUS_PENDING = 'pending';
+public const STATUS_APPROVED = 'approved';
+public const STATUS_REJECTED = 'rejected';
 
     #[ORM\ManyToOne(inversedBy: 'comment')]
     private ?Post $post = null;
@@ -36,6 +40,7 @@ class Comment
     {
         
         $this->setCreatedAt(new \DateTimeImmutable());
+          $this->status = self::STATUS_PENDING;
          
     }
 

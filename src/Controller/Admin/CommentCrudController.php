@@ -10,6 +10,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
 class CommentCrudController extends AbstractCrudController
@@ -35,7 +36,13 @@ class CommentCrudController extends AbstractCrudController
              IdField::new('id')->hideOnForm(),
                AssociationField::new('post'),
                TextEditorField::new('content'),
-            TextField::new('status'),
+               
+               ChoiceField::new('status')
+              ->setChoices([
+                   'En attente' => 'pending',
+                    'Approuvé' => 'approved',
+                    'Refusé' => 'rejected',
+    ])
             
           
         ];

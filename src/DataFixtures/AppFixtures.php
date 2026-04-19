@@ -76,5 +76,37 @@ for ($i = 1; $i <= 5; $i++) {
         }
 
         $manager->flush();
+
+
+
+
+        // ===== COMMENTS =====
+for ($i = 0; $i < 50; $i++) {
+    $comment = new \App\Entity\Comment();
+
+    $comment->setContent($faker->sentence(10));
+
+    // Date aléatoire
+    $comment->setCreatedAt(
+        \DateTimeImmutable::createFromMutable($faker->dateTime())
+    );
+
+    // 🔥 Status aléatoire
+    $statuses = [
+        \App\Entity\Comment::STATUS_PENDING,
+        \App\Entity\Comment::STATUS_APPROVED,
+        \App\Entity\Comment::STATUS_REJECTED,
+    ];
+
+    $comment->setStatus($faker->randomElement($statuses));
+
+    // Relations
+    $comment->setPost($faker->randomElement($manager->getRepository(Post::class)->findAll()));
+    $comment->setUser($faker->randomElement($users));
+
+    $manager->persist($comment);
+}
     }
+
+    
 }

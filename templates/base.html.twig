@@ -30,7 +30,7 @@
 
       <nav id="navmenu" class="navmenu">
         <ul>
-          <li><a href="{{ path('app_home') }}"class="active">Home</a></li>
+          <li><a href="{{ path('app_home') }}"class="active">Acceuil</a></li>
           
          
      {% if app.user %}
@@ -38,17 +38,17 @@
         <a href="#"> {{ app.user.userIdentifier }}</a>
     </li>
     <li>
-        <a href="{{ path('app_logout') }}">Logout</a>
+        <a href="{{ path('app_logout') }}">Deconnecter</a>
     </li>
     <li>
-        <a href="{{ path('app_account') }}">Account</a>
+        <a href="{{ path('app_account') }}">Compte</a>
     </li>
 {% else %}
     <li>
-        <a href="{{ path('app_login') }}" class="login-link">Login</a>
+        <a href="{{ path('app_login') }}" class="login-link">Connexion</a>
     </li>
     <li>
-        <a href="{{ path('app_register') }}" class="register-link">Register</a>
+        <a href="{{ path('app_register') }}" class="register-link">S'inscrir</a>
     </li>
 {% endif %}
         </ul>
@@ -82,7 +82,7 @@
 
         <div class="copyright text-center">
             <p>
-                © <span>Copyright</span>
+                © <span>Copyrt</span>
                 <strong class="px-1 sitename">Mon Blog</strong>
                 <span>All Rights Reserved</span>
             </p>
